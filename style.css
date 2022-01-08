@@ -1,0 +1,222 @@
+*{
+    font-family: Arial;
+    outline: none;
+}
+*::-webkit-scrollbar {
+    width: 16px;
+}
+*::-webkit-scrollbar-thumb {
+    background: #5f6368;
+    background-clip: padding-box;
+    border: 4px solid transparent;
+    border-radius: 8px;
+    box-shadow: none;
+    min-height: 50px;
+}
+*::-webkit-scrollbar-track {
+    background: none;
+    border: none;
+}
+html, body{
+    width: 100%;
+    height: 100%;
+}
+body{
+    margin: 0;
+    padding: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    background-image: url("https://picsum.photos/1920/1080");
+    background-attachment: fixed;
+}
+.new-background-button{
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+}
+#stand-by-button{
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    position: fixed;
+    left: 30px;
+    bottom: 30px;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+}
+#search-section{
+    padding-top: 20px;
+    position: relative;
+}
+#search-submit{
+    background: transparent;
+    border: none;
+    padding: 17px;
+    cursor: pointer;
+    position: absolute;
+}
+#search-input{
+    border: none;
+    box-shadow: #b1b1b1 0 0 15px;
+    background-color: white;
+    border-radius: 50px;
+    min-width: 200px;
+    padding: 20px 62px;
+    font-size: 20px;
+}
+#search-clear{
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    padding: 10px;
+    margin-left: -65px;
+}
+#edit-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+    width: 30px;
+    color: #c0c0c0;
+}
+#edit-url,
+#add-link {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #00000057;
+}
+#edit-form,
+#add-form {
+    background-color: #2d2e30;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: right;
+}
+#edit-form button,
+#add-form button {
+    background: none;
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+    font-size: 17px;
+    color: #4888ff;
+}
+#edit-input,
+#add-name, #add-url {
+    background: none;
+    border: solid grey 2px;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 17px;
+    width: 400px;
+    margin-bottom: 20px;
+    color: white;
+}
+button#edit-cancel,
+button#add-cancel {
+    color: white;
+}
+#links-div {
+    background: #2d2e30;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    box-shadow: 0 -1px 2px 0 rgb(0 0 0 / 30%), 0 -2px 6px 2px rgb(0 0 0 / 15%);
+    padding-top: 0;
+    position: relative;
+    margin: 20px;
+    padding-top: 20px;
+}
+#links-div h2 {
+    margin: 0;
+    text-align: center;
+    color: #e8eaed;
+}
+#delete-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: none;
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+    width: 25px;
+    color: white;
+}
+/* Google Applications */
+.EHzcec {
+    overflow-x: hidden;
+}
+.MrEfLc {
+    background-image: url(https://ssl.gstatic.com/gb/images/p1_527d3d09.png);
+    background-size: 64px 3100px;
+    display: inline-block;
+    height: 64px;
+    vertical-align: top;
+    width: 64px;
+}
+.MrEfLc.dOs7We {
+    background-size: 64px;
+}
+.CgwTDb {
+    height: 62px;
+    color: white;
+    transform: scale(calc(5/6));
+}
+.tX9u1b {
+    border-radius: 8px;
+    margin: 0;
+    position: absolute;
+    text-align: center;
+    text-decoration: none;
+    width: 84px;
+}
+.j1ei8c {
+    display: inline-block;
+    height: 84px;
+    list-style-type: none;
+    padding: 6px;
+    position: relative;
+    transition: transform .2s cubic-bezier(.333, 0, 0, 1);
+    vertical-align: top;
+    width: 84px;
+}
+.Rq5Gcb {
+    color: #e8eaed;
+    display: inline-block;
+    font-family: 'Google Sans',Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.09px;
+    line-height: 18px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 76px;
+}
+.LVal7b {
+    box-sizing: content-box;
+    margin: 0;
+    padding: 0 0 0 14px;
+    padding-top: 10px;
+}
