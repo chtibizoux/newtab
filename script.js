@@ -8,7 +8,6 @@ function getCookie(cookieName) {
     }
     return null;
 }
-console.log('%cHello world !', 'font-size: 30px;padding: 30px;color: #f22929;');
 // document.cookie = "private=yes";
 if (getCookie("private") === "yes") {
     document.body.innerHTML += `<button type="button" id="stand-by-button">
@@ -95,12 +94,6 @@ chrome.storage.sync.get((data) => {
     }
     if (data.links) {
         document.getElementById("links-div").innerHTML = data.links;
-        document.querySelectorAll(".LVal7b").forEach((element) => {
-            element.querySelector("#add-button").remove();
-        });
-        document.getElementById("links-div").querySelectorAll("a").forEach((element) => {
-            element.querySelector("#delete-button").remove();
-        });
     }
     console.log(data);
 });
@@ -137,8 +130,36 @@ editButton.addEventListener("click", () => {
         editDiv.querySelectorAll(".Rq5Gcb").forEach((element) => {
             element.contentEditable = false;
         });
+        document.getElementById("add-section-button").remove();
     } else {
         editMode = true;
+        var button = document.createElement("button");
+        button.id = "add-section-button";
+        button.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg>`;
+        editDiv.appendChild(button);
+        document.getElementById("add-section-button").addEventListener("click", function () {
+            var h2 = document.createElement("h2");
+            h2.contentEditable = true;
+            h2.innerHTML = `Section`;
+            document.getElementById("add-section-button").insertAdjacentElement("beforebegin", h2);
+            var div = document.createElement("div");
+            div.className = "EHzcec";
+            div.style.height = "120px";
+            div.innerHTML = `<ul class="LVal7b u4RcUd">
+                <li class="j1ei8c" id="add-button">
+                    <span class="tX9u1b" style="cursor: pointer;">
+                        <div class="CgwTDb"><svg style="background: none;" class="MrEfLc" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg></div>
+                    </span>
+                </li>
+            </ul>`;
+            document.getElementById("add-section-button").insertAdjacentElement("beforebegin", div);
+            div.querySelector("#add-button").addEventListener("click", function () {
+                document.getElementById("add-name").value = "";
+                document.getElementById("add-url").value = "";
+                document.getElementById("add-link").style.display = "";
+                activeElement = this.parentElement;
+            });
+        });
         editButton.querySelector("#edit").style.display = "none";
         editButton.querySelector("#close").style.display = "";
         editDiv.querySelectorAll("h2").forEach((element) => {
@@ -220,6 +241,7 @@ document.getElementById("edit-form").addEventListener("submit", (e) => {
     save();
 });
 function save() {
+    // TODO: remove modify icons
     chrome.storage.sync.set({ links: editDiv.innerHTML });
 }
 async function getIcon(url) {
@@ -227,10 +249,11 @@ async function getIcon(url) {
         var responce = await fetch(url);
         var text = await responce.text();
         const parser = new DOMParser();
-        var dom = parser.parseFromString(text, "application/xml");
-        var link = dom.querySelector("link[rel*='icon']")
-        if (link) {
-            return new URL(link.getAttribute("href"), url).href;
+        var dom = parser.parseFromString(text, "text/html");
+        var icons = dom.querySelectorAll("link[rel*='icon']");
+        var icon = icons[icons.length - 1];
+        if (icon) {
+            return new URL(icon.getAttribute("href"), url).href;
         } else {
             return "./img/icon_128.png";
         }
