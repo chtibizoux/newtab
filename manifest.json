@@ -4,13 +4,9 @@
     "description": "Custom NewTab",
     "version": "1.0",
     "author": "Clément Songis",
-    "background": {
-        "service_worker": "background.js"
-    },
     "action": { 
         "default_icon": "img/icon_128.png",
         "default_title": "NewTab",
-        "default_popup": "popup.html"
     },
     "host_permissions": [
         "*://*/"

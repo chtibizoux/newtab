@@ -8,80 +8,6 @@ function getCookie(cookieName) {
     }
     return null;
 }
-// document.cookie = "private=yes";
-if (getCookie("private") === "yes") {
-    document.body.innerHTML += `<button type="button" id="stand-by-button">
-            <svg xmlns="http://www.w3.org/2000/svg" width="50px" height="50px" viewBox="-0.8 -0.5 177 202">
-                <path fill="none" stroke="#ffffff" stroke-width="30" stroke-linecap="round" d="M33.7,64.3C22.1,77.2,15,94.3,15,113  c0,40.1,32.5,72.7,72.7,72.7c40.1,0,72.7-32.5,72.7-72.7c0-18.7-7.1-35.8-18.7-48.7"/>
-                <line fill="none" stroke="#ffffff" stroke-width="30" stroke-linecap="round" x1="87.8" y1="15" x2="87.8" y2="113"/>
-            </svg>
-        </button>`;
-    document.getElementById("stand-by-button").addEventListener("click", () => {
-        document.body.innerHTML = "";
-        document.body.style.cursor = "none";
-        document.body.style.background = "black";
-        document.body.requestFullscreen();
-    });
-    document.getElementById("links-div").innerHTML += `<h2>Projects</h2>
-        <div class="EHzcec" style="height: 120px;">
-            <ul class="LVal7b u4RcUd">
-                <li class="j1ei8c">
-                    <a class="tX9u1b" href="https://clementsongis.cf/" target="_top" aria-grabbed="false"
-                        draggable="false">
-                        <div class="CgwTDb"><span class="MrEfLc"
-                                style="background-image: url('./img/portfolio-icon.png');background-size: 64px 64px;"></span>
-                        </div>
-                        <span class="Rq5Gcb">Portfolio</span>
-                    </a>
-                </li>
-                <li class="j1ei8c">
-                    <a class="tX9u1b" href="https://pronote.clementsongis.cf/" target="_top" aria-grabbed="false"
-                        draggable="false">
-                        <div class="CgwTDb"><span class="MrEfLc"
-                                style="background-image: url('./img/pronote-icon.png');background-size: 64px 64px;"></span>
-                        </div>
-                        <span class="Rq5Gcb">Pronote</span>
-                    </a>
-                </li>
-                <li class="j1ei8c">
-                    <a class="tX9u1b" href="https://discord-scratch.glitch.me/" target="_top" aria-grabbed="false"
-                        draggable="false">
-                        <div class="CgwTDb"><span class="MrEfLc"
-                                style="background-image: url('./img/discord-scratch-logo.png');background-size: 64px 64px;"></span>
-                        </div>
-                        <span class="Rq5Gcb">Discord Scratch</span>
-                    </a>
-                </li>
-                <li class="j1ei8c">
-                    <a class="tX9u1b" href="https://battleblock.ga/" target="_top" aria-grabbed="false"
-                        draggable="false">
-                        <div class="CgwTDb"><span class="MrEfLc"
-                                style="background-image: url('./img/battleblock-logo.png');background-size: 64px 64px;"></span>
-                        </div>
-                        <span class="Rq5Gcb">BattleBlock</span>
-                    </a>
-                </li>
-                <li class="j1ei8c">
-                    <a class="tX9u1b" href="http://localhost:8080" target="_top" aria-grabbed="false"
-                        draggable="false">
-                        <div class="CgwTDb"><span class="MrEfLc"
-                                style="background-image: url('./img/description_icon.png');background-size: 64px 64px;"></span>
-                        </div>
-                        <span class="Rq5Gcb">:8080</span>
-                    </a>
-                </li>
-                <li class="j1ei8c">
-                    <a class="tX9u1b" href="http://localhost:1234" target="_top" aria-grabbed="false"
-                        draggable="false">
-                        <div class="CgwTDb"><span class="MrEfLc"
-                                style="background-image: url('./img/description_icon.png');background-size: 64px 64px;"></span>
-                        </div>
-                        <span class="Rq5Gcb">:1234</span>
-                    </a>
-                </li>
-            </ul>
-        </div>`;
-}
 chrome.storage.sync.get((data) => {
     if (data.marginTop) {
         document.getElementById("search-section").style.marginTop = data.marginTop + "px";
@@ -261,13 +187,3 @@ async function getIcon(url) {
         return "./img/icon_128.png";
     }
 }
-// chrome.runtime.sendMessage({
-//     url: "https://clementsongis.cf",
-//     command: "get"
-// }, (result) => {
-//     if (!window.chrome.runtime.lastError) {
-//         console.log(result);
-//     } else {
-//         console.error("Extension Error: " + window.chrome.runtime.lastError.message);
-//     }
-// });
